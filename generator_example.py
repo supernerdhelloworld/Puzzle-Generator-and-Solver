@@ -389,82 +389,43 @@ def generate_puzzle(table: List[List[str]], *,
 
 def main():
     kinds_dict = {
-        "Nationality": {
-            "american", "argentine", "australian", "brazilian", "british",
-            "canadian", "chinese", "colombian", "dutch", "egyptian",
-            "french", "german", "indian", "indonesian", "italian",
-            "japanese", "malaysian", "mexican", "nigerian", "pakistani",
-            "polish", "russian", "spanish", "thai", "turkish",
-        },
-        "Food": {
-            "apple", "apricot", "artichoke", "asparagus", "avocado",
-            "banana", "blueberry", "broccoli", "cabbage", "carrot",
-            "cauliflower", "cherry", "corn", "cranberry", "cucumber",
-            "eggplant", "garlic", "grapefruit", "grapes", "kale",
-            "kiwi", "lemon", "lettuce", "lime", "mango",
-            "nectarine", "onion", "orange", "papaya", "peach",
-            "pear", "peas", "pepper", "pineapple", "plum",
-            "pomegranate", "potato", "pumpkin", "radish", "raspberry",
-            "spinach", "strawberry", "tomato", "watermelon", "zucchini",
-        },
-        "Pet": {
-            "bird", "cat", "chinchilla", "dog", "ferret",
-            "fish", "frog", "goat", "goldfish", "guinea-pig",
-            "hamster", "hedgehog", "horse", "lizard", "mouse",
-            "pony", "rabbit", "rat", "snake", "turtle",
-        },
-        "Job": {
-            "accountant", "analyst", "architect", "bartender", "chef",
-            "coach", "dancer", "designer", "doctor", "dressmaker",
-            "electrician", "engineer", "entrepreneur", "firefighter", "fisherman",
-            "freelancer", "journalist", "lawyer", "librarian", "manager",
-            "mechanic", "musician", "nurse", "paramedic", "photographer",
-            "pilot", "police-officer", "project-manager", "scientist", "security-guard",
-            "social-worker", "software-developer", "teacher", "videographer", "writer",
-        },
-        "Beverage": {
-            "7up", "almond-milk", "coffee", "cola", "fanta",
-            "hot-chocolate", "iced-tea", "juice", "lemonade", "milk",
-            "mirinda", "soy-milk", "sprite", "tea", "water",
-        },
-        "Transport": {
-            "airplane", "bike", "boat", "bus", "car",
-            "helicopter", "jet-ski", "motorbike", "quad-bike", "roller",
-            "scooter", "ship", "skateboard", "snowmobile",
-            "subway", "taxi", "train", "tram", "trike", "van",
-        },
-        "Music-Genre": {
-            "ambient", "blues", "classical", "country", "d&b",
-            "disco", "dubstep", "electronic", "folk", "funk",
-            "gospel", "hip-hop", "house", "indie", "jazz",
-            "metal", "pop", "punk", "r&b", "reggae",
-            "rock", "salsa", "soul", "techno", "trance",
-        },
-        "Movie-Genre": {
-            "action", "adventure", "animation", "comedy", "crime",
-            "disaster", "documentary", "drama", "epic", "family",
-            "fantasy", "horror", "martial-arts", "musical", "mystery",
-            "romance", "satire", "scientific", "sports", "spy",
-            "superhero", "thriller", "time-travel", "western", "zombie",
-        },
-        "Sport": {
-            "badminton", "baseball", "basketball", "biathlon", "climbing",
-            "cricket", "cycling", "golf", "handball", "ice-hockey",
-            "lacrosse", "parkour", "rowing", "rugby", "sailing",
-            "skateboarding", "skiing", "snowboarding", "soccer", "surfing",
-            "swimming", "tennis", "volleyball", "water-polo", "weightlifting",
-        },
-        "Hobby": {
-            "baking", "board-games", "camping", "card-games", "chess",
-            "collecting", "cooking", "dancing", "drawing", "filmmaking",
-            "fishing", "gardening", "hiking", "magic-tricks", "photography",
-            "puzzles", "reading", "rock-climbing", "singing", "skydiving",
-            "sudoku", "traveling", "video-games", "woodworking", "writing",
-        }
+        "Name": {
+		"Eleanor", "Graham", "Jonah", "Karolina", "Yong", 
+		"Vijay", "Halima", "Sizwe", "Lautaro", "Marama"
+	},
+	"Game-Genre": {
+		"fighting", "action", "sports", "adventure", "simulation", 
+		"rpg", "strategy", "sports", "puzzle", "shooter"
+	},
+	"Product": {
+		"drink", "cleaner", "toy", "snack", "fruit", 
+		"meat", "stationery", "gift-card", "electronic", "book"
+	},
+	"Age": {
+		"14", "18", "21", "27", "35", 
+		"46", "52", "63", "72", "81"
+	},
+	"Clothes-Colour": {
+		"red", "orange", "yellow", "green", "blue", 
+		"purple", "white", "gray", "black", "brown"
+	},
+	"Language-Learning": {
+		"english", "italian", "chinese", "russian", "arabic",
+		"malay", "hunquminum", "sign-language", "python", "lojban"
+	},
+	"Music": {
+		"pop", "jazz", "classical", "hip-hop", "rock",
+		"metal", "country", "electronic", "soul", "world"
+	},
+	"Lives-With": {
+		"alone", "cat", "dog", "sister", "brother", 
+		"significant-other", "parents", "grandparents", "friend", "bird"
+	}
+	
     }
     kinds = sorted(kinds_dict)
-    n_attributes = 4
-    m_objects = 4
+    n_attributes = 8
+    m_objects = 10
 
     # Check
     assert n_attributes <= len(kinds_dict),\
@@ -480,7 +441,7 @@ def main():
     for row in table:
         print(f"{row[0]}:", ', '.join(sorted(row[1:])))
     t1 = time.monotonic()
-    premises = generate_puzzle(table, level=20, minimal_conditions=True, max_seconds_for_minimizing=30)
+    premises = generate_puzzle(table, level=12, minimal_conditions=True, max_seconds_for_minimizing=30)
     t2 = time.monotonic()
     indent = len(str(len(premises)))
     for i, premise in enumerate(premises, 1):
