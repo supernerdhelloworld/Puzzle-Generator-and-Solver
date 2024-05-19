@@ -395,7 +395,7 @@ def main():
 	},
 	"Game-Genre": {
 		"fighting", "action", "sports", "adventure", "simulation", 
-		"rpg", "strategy", "sports", "puzzle", "shooter"
+		"rpg", "strategy", "platformer", "puzzle", "shooter"
 	},
 	"Product": {
 		"drink", "cleaner", "toy", "snack", "fruit", 
@@ -410,8 +410,8 @@ def main():
 		"purple", "white", "gray", "black", "brown"
 	},
 	"Language-Learning": {
-		"english", "italian", "chinese", "russian", "arabic",
-		"malay", "hunquminum", "sign-language", "python", "lojban"
+		"english", "italian", "chinese", "hindi", "arabic",
+		"tagalog", "hunquminum", "sign-language", "python", "esperanto"
 	},
 	"Music": {
 		"pop", "jazz", "classical", "hip-hop", "rock",
